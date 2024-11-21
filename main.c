@@ -6,13 +6,13 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:58:13 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/11/21 16:59:02 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/11/21 17:42:52 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "./include/minishell.h"
 
-// FINAL teste de merge
+// FINAL
 
 int	main(void)
 {
