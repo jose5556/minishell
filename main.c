@@ -12,7 +12,7 @@
 
 # include "./include/minishell.h"
 
-// teste de merge
+// FINAL teste de merge
 
 int	main(void)
 {
