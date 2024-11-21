@@ -6,12 +6,19 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:58:13 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/11/21 18:13:24 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/11/21 20:23:44 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "./include/minishell.h"
 
+static void	get_prompt()
+{
+	char *line1;
+
+	line1 = getenv("LOGNAME");
+	printf("%s\n", line1);
+}
 int	main(void)
 {
 	char *line;
@@ -26,27 +33,6 @@ int	main(void)
 		else
 			ft_printf("%s\n", line);
 		free(line);
-		return 0;
 	}
 	return (1);
 } 
-
-void	get_promt()
-{
-	char *line1;
-	char *line2;
-
-	line1 = getenv("LOGNAME");
-	line2 = getenv("LOGNAME");
-}
- 
-int	main(void)
-{
-	char *line;
-
-	line = NULL;
-	line = getenv("LOGNAME");
-	if (!line)
-		return (0);
-	printf("%s\n", line);
-}
