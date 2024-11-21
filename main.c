@@ -12,6 +12,8 @@
 
 # include "./include/minishell.h"
 
+// teste de merge
+
 int	main(void)
 {
 	char *line;
