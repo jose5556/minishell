@@ -12,7 +12,7 @@
 
 # include "./include/minishell.h"
 
-// FINAL teste de merge
+
 
 int	main(void)
 {
@@ -42,6 +42,8 @@ void	get_promt()
 	line2 = getenv("LOGNAME");
 }
 
+// Final test
+ 
 int	main(void)
 {
 	char *line;
