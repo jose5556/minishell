@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:58:13 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/11/21 17:58:28 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/11/21 18:06:45 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,6 @@ void	get_promt()
 	line1 = getenv("LOGNAME");
 	line2 = getenv("LOGNAME");
 }
-
-// Final test
  
 int	main(void)
 {
