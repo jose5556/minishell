@@ -6,11 +6,40 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:58:13 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/11/21 17:42:52 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/11/25 19:07:00 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "./include/minishell.h"
+
+static void	get_prompt()
+{
+	char	*logname;
+	char	*session_manager;
+	char	**split_result;
+	char	*result;
+	int		i;
+
+	i = 0;
+	logname = getenv("LOGNAME");
+	session_manager = getenv("SESSION_MANAGER");
+	if (!session_manager)
+		result = ft_strdup("localhost");
+	else if ((ft_strchr(session_manager, '.')))
+	{
+		split_result = ft_split(session_manager, '/');
+		while (split_result[1][i] && split_result[1][i] != '.')
+			i++;
+		result = ft_substr(split_result[1], 0, i);
+	}
+	else
+		result = ft_strdup(session_manager);
+	result = ft_strjoin_free("@", result, 2);
+	result = ft_strjoin_free(logname, result, 2);
+	result = ft_strjoin_free(result, ":~$", 1);
+	ft_printf("%s ", result);
+	free(result);
+}
 
 int	main(void)
 {
@@ -19,37 +48,14 @@ int	main(void)
 	line = NULL;
 	while (1)
 	{
-//		get_prompt()
-		line = readline(getenv("HOME"));
+		get_prompt();
+		line = read_line(0, line);
 		if (line == NULL)
 			ft_printf("NULL\n");
 		else
 			ft_printf("%s\n", line);
 		free(line);
-		return 0;
 	}
 	return (1);
-} 
-/* 
-void	get_promt()
-{
-	char *line1;
-	char *line2;
-
-	line1 = getenv("LOGNAME");
-	line2 = getenv("LOGNAME");
-}
-
-// Final test
- 
-int	main(void)
-{
-	char *line;
-
-	line = NULL;
-	line = getenv("LOGNAME");
-	if (!line)
-		return (0);
-	printf("%s\n", line);
 }
  */
