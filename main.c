@@ -12,9 +12,6 @@
 
 # include "./include/minishell.h"
 
-// FINAL
-
-
 int	main(void)
 {
 	char *line;
@@ -22,8 +19,8 @@ int	main(void)
 	line = NULL;
 	while (1)
 	{
-		get_prompt()
-		line = read_line(0, line);
+//		get_prompt()
+		line = readline(getenv("HOME"));
 		if (line == NULL)
 			ft_printf("NULL\n");
 		else
@@ -33,7 +30,7 @@ int	main(void)
 	}
 	return (1);
 } 
-
+/* 
 void	get_promt()
 {
 	char *line1;
@@ -55,3 +52,4 @@ int	main(void)
 		return (0);
 	printf("%s\n", line);
 }
+ */
