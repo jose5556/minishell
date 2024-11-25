@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:58:13 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/11/21 20:23:44 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/11/25 18:12:00 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,26 @@
 
 static void	get_prompt()
 {
-	char *line1;
+	char	*logname;
+	char	*session_manager;
+	char	**split_result;
+	char	*result;
+	int		i;
 
-	line1 = getenv("LOGNAME");
-	printf("%s\n", line1);
+	i = 0;
+	logname = getenv("LOGNAME");
+	session_manager = getenv("SESSION_MANAGER");
+	split_result = ft_split(session_manager, '/');
+	while (split_result[1][i] && split_result[1][i] != '.')
+		i++;
+	result = ft_substr(split_result[1], 0, i);
+	result = ft_strjoin_free("@", result, 2);
+	result = ft_strjoin_free(logname, result, 2);
+	result = ft_strjoin_free(result, ":~$", 1);
+	ft_printf("%s ", result);
+	free(result);
 }
+
 int	main(void)
 {
 	char *line;
@@ -35,4 +50,4 @@ int	main(void)
 		free(line);
 	}
 	return (1);
-} 
+}
