@@ -6,13 +6,13 @@
 #    By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/19 16:11:54 by joseoliv          #+#    #+#              #
-#    Updated: 2024/11/19 16:14:29 by joseoliv         ###   ########.fr        #
+#    Updated: 2024/11/25 18:13:23 by joseoliv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = minishell
 
-CC =		cc 
+CC =		cc -g
 CFLAGS =	-Wall -Wextra -Werror
 
 SRC =		main.c
