@@ -6,21 +6,22 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:58:13 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/11/25 20:01:02 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/11/27 04:13:43 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "./include/minishell.h"
+#include "./include/minishell.h"
 
 int	main(void)
 {
-	char *line;
+	char	*line;
 
 	line = NULL;
 	while (1)
 	{
 		get_prompt();
-		line = readline(line);
+		line = read_line(0, line);
+		//line = readline(line); func to use, bit it has so much leaks, that i comented for now
 		if (line == NULL)
 			ft_printf("NULL\n");
 		else
