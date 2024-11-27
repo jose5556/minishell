@@ -6,7 +6,7 @@
 #    By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/19 16:11:54 by joseoliv          #+#    #+#              #
-#    Updated: 2024/11/25 19:54:10 by joseoliv         ###   ########.fr        #
+#    Updated: 2024/11/27 06:34:07 by joseoliv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC =		cc -g
 CFLAGS =	-Wall -Wextra -Werror
 READLINE_FLAG = -lreadline
 
-SRC =		main.c src/prompt/get_prompt.c
+SRC =		main.c src/prompt/get_prompt.c src/signals/handle_signals.c
 
 LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a
