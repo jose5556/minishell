@@ -6,11 +6,11 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 19:42:41 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/11/25 20:23:55 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/11/27 04:09:03 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../include/minishell.h"
+#include "../../include/minishell.h"
 
 static char	*str_prompt(char **result, char *logname)
 {
@@ -20,7 +20,7 @@ static char	*str_prompt(char **result, char *logname)
 	return (*result);
 }
 
-static void free_all(char ***split_result, char **logname, char **session_manager)
+static void	free_all(char ***split_result, char **logname, char **session_manager, char **result)
 {
 	int	i;
 
@@ -31,6 +31,7 @@ static void free_all(char ***split_result, char **logname, char **session_manage
 		i++;
 	}
 	free(*split_result);
+	*split_result = NULL;
 	if (!ft_strlen(*logname))
 	{
 		free(*logname);
@@ -41,17 +42,19 @@ static void free_all(char ***split_result, char **logname, char **session_manage
 		free(*session_manager);
 		*session_manager = NULL;
 	}
+	free(*result);
 }
 
-void	get_prompt()
+void	get_prompt(void)
 {
 	char	*logname;
 	char	*session_manager;
-	char		**split_result;
-	char		*result;
-	int			i;
+	char	**split_result;
+	char	*result;
+	int		i;
 
 	i = 0;
+	split_result = NULL;
 	logname = getenv("LOGNAME");
 	session_manager = getenv("SESSION_MANAGER");
 	if (!logname)
@@ -61,7 +64,7 @@ void	get_prompt()
 	else if ((ft_strchr(session_manager, '.')))
 	{
 		split_result = ft_split(session_manager, '/');
-		while (split_result[1][i] && split_result[1][i] != '.')
+		while (split_result && split_result[1][i] && split_result[1][i] != '.')
 			i++;
 		result = ft_substr(split_result[1], 0, i);
 	}
@@ -69,5 +72,5 @@ void	get_prompt()
 		result = ft_strdup(session_manager);
 	result = str_prompt(&result, logname);
 	ft_printf("%s ", result);
-	free_all(&split_result, &logname, &session_manager);
+	free_all(&split_result, &logname, &session_manager, &result);
 }
