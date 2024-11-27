@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:58:13 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/11/27 06:40:15 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/11/27 06:58:58 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	main(void)
 	char	*line;
 
 	line = NULL;
-	init_signals();    // ctr + d TODO
+	init_signals();    // ctr + \ TODO
 	while (1)
 	{
 		get_prompt();
