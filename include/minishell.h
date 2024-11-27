@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:58:34 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/11/27 03:45:44 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/11/27 06:32:58 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <readline/readline.h>
 # include <readline/history.h>
 # include <fcntl.h>
+# include <signal.h>
 
 typedef struct s_list
 {
@@ -27,5 +28,6 @@ typedef struct s_list
 } t_list;
 
 void	get_prompt(void);
+void	init_signals(void);
 
 #endif
