@@ -6,7 +6,7 @@
 #    By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/19 16:11:54 by joseoliv          #+#    #+#              #
-#    Updated: 2024/11/25 18:13:23 by joseoliv         ###   ########.fr        #
+#    Updated: 2024/11/25 19:54:10 by joseoliv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,9 @@ NAME = minishell
 
 CC =		cc -g
 CFLAGS =	-Wall -Wextra -Werror
+READLINE_FLAG = -lreadline
 
-SRC =		main.c
+SRC =		main.c src/prompt/get_prompt.c
 
 LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a
@@ -25,7 +26,7 @@ OBJ = $(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ) $(LIBFT)
-	@$(CC) -o $@ $(OBJ) $(LIBFT)
+	@$(CC) $(READLINE_FLAG) -o $@ $(OBJ) $(LIBFT)
 
 %.o: %.c
 	@$(CC) $(CFLAGS) -c $< -o $@
