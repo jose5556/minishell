@@ -1,36 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   handle_signals.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/19 15:58:13 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/11/27 06:58:58 by joseoliv         ###   ########.fr       */
+/*   Created: 2024/11/27 06:32:14 by joseoliv          #+#    #+#             */
+/*   Updated: 2024/11/27 06:32:51 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./include/minishell.h"
+#include "../../include/minishell.h"
 
-int	main(void)
+static void	signal_handler(int signum)
 {
-	char	*line;
-
-	line = NULL;
-	init_signals();    // ctr + \ TODO
-	while (1)
+	if (signum == SIGINT)
 	{
+		write (1, "\n", 1);
 		get_prompt();
-		line = readline(line);
-		if (!line)
-			exit (EXIT_SUCCESS);
-		if (line)
-		{
-			ft_printf("%s\n", line);
-			free(line);
-			line = NULL;
-		}
 	}
-	return (1);
+	if (signum == SIGINT)
+	{
+		return ;
+	}
 }
- */
+
+void	init_signals(void)
+{
+	struct sigaction	sa;
+
+	sa.sa_handler = &signal_handler;
+	sa.sa_flags = 0;
+	sigemptyset(&sa.sa_mask);
+
+	if (sigaction(SIGINT, &sa, NULL) == -1)
+		exit(1);
+	if (sigaction(SIGQUIT, &sa, NULL) == -1) //INCOMPLETE TODO
+		exit(1);
+}
