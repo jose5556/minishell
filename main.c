@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:58:13 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/11/27 06:33:27 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/11/27 06:40:15 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ int	main(void)
 	while (1)
 	{
 		get_prompt();
-		//line = read_line(0, line);
-		line = readline(line); //func to use, bit it has so much leaks, that i comented for now
+		line = readline(line);
 		if (!line)
 			exit (EXIT_SUCCESS);
 		if (line)
