@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 23:29:05 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/11/27 23:47:25 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/11/28 20:57:32 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,8 @@ char	*get_hostname()
 			i++;
 		temp = ft_substr(result, 0, i);
 		free(result);
-		result = ft_strdup(temp);
 	}
-	return (result);
+	return (temp);
 }
 
 char	*get_home()
@@ -74,9 +73,9 @@ char	*get_pwd(t_prompt *prompt)
 	pwd_remains = NULL;
 	pwd = getenv("PWD");
 	len1 = ft_strlen(pwd);
-	len2 = ft_strlen(prompt->home_directory);
-	if (!(ft_strncmp(prompt->home_directory, pwd, len1)))
+	len2 = ft_strlen(prompt->home_path);
+	if (!(ft_strncmp(prompt->home_path, pwd, len1)))
 		return (NULL);
-	pwd_remains = ft_substr(pwd, len2, len2 - len1);
+	pwd_remains = ft_substr(pwd, len2, len1 - len2);
 	return (pwd_remains);
 }
