@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 23:29:05 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/11/28 20:57:32 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/11/28 21:40:02 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,12 @@ char	*get_pwd(t_prompt *prompt)
 	pwd = NULL;
 	pwd_remains = NULL;
 	pwd = getenv("PWD");
+	if (!pwd)
+		return (NULL);
 	len1 = ft_strlen(pwd);
 	len2 = ft_strlen(prompt->home_path);
 	if (!(ft_strncmp(prompt->home_path, pwd, len1)))
 		return (NULL);
-	pwd_remains = ft_substr(pwd, len2, len1 - len2);
+	pwd_remains = ft_substr(pwd + len2, 0, ft_strlen(pwd + len2));
 	return (pwd_remains);
 }
