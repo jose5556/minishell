@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 19:42:41 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/11/28 21:00:01 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/11/28 21:40:08 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,11 @@ static void	print_prompt(t_prompt *prompt)
 	if (!(prompt->pwd))
 		ft_printf(":~$ ");
 	else
+	{
 		ft_printf(":~%s$ ", prompt->pwd);
+		free(prompt->pwd);
+		prompt->pwd = NULL;
+	}
 }
 
 void	get_prompt(t_prompt *prompt)
