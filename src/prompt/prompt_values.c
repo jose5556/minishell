@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 23:29:05 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/11/28 21:40:02 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/11/28 21:56:08 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ char	*get_hostname()
 	if (fd == -1)
 		return (ft_strdup("localhost"));
 	result = get_next_line(fd);
+	if (!result)
+		return (ft_strdup("localhost"));
 	if (ft_strchr(result, '.'))
 	{
 		while (result && result[i] != '.')
