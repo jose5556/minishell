@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:58:34 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/11/28 18:54:32 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/11/28 20:56:44 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <fcntl.h>
 # include <signal.h>
 
-extern int	g_signal;
+//extern int	g_signal;
 
 typedef struct s_list
 {
@@ -34,7 +34,7 @@ typedef struct s_prompt
 	char	*logname;
 	char	*hostname;
 	char	*pwd;
-	char	*home_directory;
+	char	*home_path;
 } t_prompt;
 
 void	get_prompt(t_prompt *prompt);
