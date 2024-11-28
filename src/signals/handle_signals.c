@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 06:32:14 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/11/28 00:22:45 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/11/28 00:30:43 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@ static void	signal_handler(int signum)
 {
 	if (signum == SIGINT)
 	{
-		g_signal = 2;
-	}
+		g_signal = 2;  //TODO
+	}					// CALL THE PROMPT AGAIN, I HAVE NO IDEA HOW
 	if (signum == SIGQUIT)
 	{
-		ft_printf("%d", signum);
-	}
+		ft_printf("%d", signum);  //TODO	
+	}								//DONT DO NOTHING, I HAVE NO IDEA HOW
 }
 
 void	init_signals()

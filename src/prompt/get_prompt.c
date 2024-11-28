@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 19:42:41 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/11/27 23:56:57 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/11/28 00:31:43 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,3 +33,6 @@ void	get_prompt(t_prompt *prompt)
 	prompt->pwd = get_pwd(prompt);
 	print_prompt(prompt);
 }
+
+//TODO
+//FUNCS TO CLEAN ALL OF THE THIS PROMPT VALUES GARBAGE
