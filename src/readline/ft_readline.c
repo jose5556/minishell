@@ -1,43 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_readline.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/19 15:58:13 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/11/28 00:24:14 by joseoliv         ###   ########.fr       */
+/*   Created: 2024/11/27 22:36:40 by joseoliv          #+#    #+#             */
+/*   Updated: 2024/11/27 23:52:49 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./include/minishell.h"
+#include "../../include/minishell.h"
 
-int	g_signal;
-
-int	main(void)
+char	*ft_readline(t_prompt *prompt, char **line)
 {
-	char		*line;
-	t_prompt	*prompt;
-
-	line = NULL;
-	prompt = NULL;
-	prompt = malloc(sizeof(t_prompt));
-	init(&prompt);
-	if (g_signal == 2)
-	{
-		g_signal = 0;
-	}
-	while (1)
-	{
-		line = ft_readline(prompt, &line);
-		if (!line)
-			exit (EXIT_SUCCESS);
-		if (line)
-		{
-			ft_printf("%s\n", line);
-			free(line);
-			line = NULL;
-		}
-	}
-	return (1);
+	get_prompt(prompt);
+	*line = readline(*line);
+	//parse_line(); TODO ?
+	return (*line);
 }

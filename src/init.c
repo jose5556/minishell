@@ -1,43 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/19 15:58:13 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/11/28 00:24:14 by joseoliv         ###   ########.fr       */
+/*   Created: 2024/11/27 21:41:14 by joseoliv          #+#    #+#             */
+/*   Updated: 2024/11/28 00:20:42 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./include/minishell.h"
+#include "../include/minishell.h"
 
-int	g_signal;
-
-int	main(void)
+void	init(t_prompt **prompt)
 {
-	char		*line;
-	t_prompt	*prompt;
-
-	line = NULL;
-	prompt = NULL;
-	prompt = malloc(sizeof(t_prompt));
-	init(&prompt);
-	if (g_signal == 2)
-	{
-		g_signal = 0;
-	}
-	while (1)
-	{
-		line = ft_readline(prompt, &line);
-		if (!line)
-			exit (EXIT_SUCCESS);
-		if (line)
-		{
-			ft_printf("%s\n", line);
-			free(line);
-			line = NULL;
-		}
-	}
-	return (1);
+	g_signal = 0;
+	init_signals();     // ctr + \ TODO
+	ft_bzero(*prompt, sizeof(t_prompt *));
 }
