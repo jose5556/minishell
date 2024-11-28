@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 21:41:14 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/11/28 18:54:59 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/11/28 20:45:48 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void	init()
 {
-	g_signal = 0;
+	//g_signal = 0;
 	init_signals();     // ctr + \ TODO
 }
