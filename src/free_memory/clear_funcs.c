@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   clear_funcs.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/27 21:41:14 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/11/28 18:54:59 by joseoliv         ###   ########.fr       */
+/*   Created: 2024/11/28 18:42:59 by joseoliv          #+#    #+#             */
+/*   Updated: 2024/11/28 18:45:39 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/minishell.h"
+#include "../../include/minishell.h"
 
-void	init()
+void	ft_clear_all(t_prompt *prompt)
 {
-	g_signal = 0;
-	init_signals();     // ctr + \ TODO
+	free(prompt->logname);
+	free(prompt->hostname);
+	free(prompt->pwd);
+	free(prompt->home_directory);
 }

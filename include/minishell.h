@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:58:34 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/11/28 00:13:31 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/11/28 18:54:32 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,11 @@ char	*get_home();
 char	*get_pwd(t_prompt *prompt);
 
 void	init_signals();
-void	init(t_prompt **prompt);
+void	init();
 
 
 char	*ft_readline(t_prompt *prompt, char **line);
+
+void	ft_clear_all(t_prompt *prompt);
+
 #endif

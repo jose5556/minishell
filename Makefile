@@ -6,7 +6,7 @@
 #    By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/19 16:11:54 by joseoliv          #+#    #+#              #
-#    Updated: 2024/11/27 23:48:31 by joseoliv         ###   ########.fr        #
+#    Updated: 2024/11/28 18:46:27 by joseoliv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ SRC =		main.c \
 			src/prompt/get_prompt.c src/prompt/prompt_values.c \
 			src/signals/handle_signals.c \
 			src/init.c \
-			src/readline/ft_readline.c
+			src/readline/ft_readline.c \
+			src/free_memory/clear_funcs.c
 
 LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a
