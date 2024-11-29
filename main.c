@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:58:13 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/11/29 00:03:42 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/11/29 00:14:07 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,7 @@ int	main(void)
 	init();
 	while (1)
 	{
-		str_prompt = get_prompt(prompt);
-		line = readline(str_prompt);
+		line = ft_readline(prompt, &line);
 		if (!line)
 			ft_clear_all(prompt);
 		if (line[0])
