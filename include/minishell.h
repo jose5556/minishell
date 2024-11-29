@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:58:34 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/11/28 21:40:05 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/11/29 00:05:06 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,10 @@ typedef struct s_prompt
 	char	*hostname;
 	char	*pwd;
 	char	*home_path;
+	char	*final_str;
 } t_prompt;
 
-void	get_prompt(t_prompt *prompt);
+char	*get_prompt(t_prompt *prompt);
 char	*get_logname();
 char	*get_hostname();
 char	*get_home();
@@ -50,5 +51,6 @@ void	init();
 char	*ft_readline(t_prompt *prompt, char **line);
 
 void	ft_clear_all(t_prompt *prompt);
+void	free_necessary(char	**line, t_prompt *prompt);
 
 #endif
