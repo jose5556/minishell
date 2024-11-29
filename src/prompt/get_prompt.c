@@ -6,27 +6,28 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 19:42:41 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/11/28 21:40:08 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/11/29 00:02:20 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/minishell.h"
 
-static void	print_prompt(t_prompt *prompt)
+static void	*get_final_str(t_prompt *prompt)
 {
-	ft_printf("%s@", prompt->logname);
-	ft_printf("%s", prompt->hostname);
+	prompt->final_str = ft_strjoin(prompt->logname, "@");
+	prompt->final_str = ft_strjoin_free(prompt->final_str, prompt->hostname, 1);
 	if (!(prompt->pwd))
-		ft_printf(":~$ ");
+		prompt->final_str = ft_strjoin_free(prompt->final_str, ":~$ ", 1);
 	else
 	{
-		ft_printf(":~%s$ ", prompt->pwd);
-		free(prompt->pwd);
-		prompt->pwd = NULL;
+		prompt->final_str = ft_strjoin_free(prompt->final_str, ":~", 1);
+		prompt->final_str = ft_strjoin_free(prompt->final_str, prompt->pwd, 1);
+		prompt->final_str = ft_strjoin_free(prompt->final_str, "$", 1);
 	}
+	return (prompt->final_str);
 }
 
-void	get_prompt(t_prompt *prompt)
+char	*get_prompt(t_prompt *prompt)
 {
 	if (!(prompt->logname))
 		prompt->logname = get_logname();
@@ -35,5 +36,5 @@ void	get_prompt(t_prompt *prompt)
 	if (!(prompt->home_path))
 		prompt->home_path = get_home();
 	prompt->pwd = get_pwd(prompt);
-	print_prompt(prompt);
+	return (get_final_str(prompt));
 }
