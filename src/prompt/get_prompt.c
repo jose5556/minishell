@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 19:42:41 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/11/30 17:42:40 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/11/30 19:53:22 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	*get_final_str(t_prompt *prompt)
 	{
 		prompt->final_str = ft_strjoin_free(prompt->final_str, ":~", 1);
 		prompt->final_str = ft_strjoin_free(prompt->final_str, prompt->pwd, 1);
-		prompt->final_str = ft_strjoin_free(prompt->final_str, "$", 1);
+		prompt->final_str = ft_strjoin_free(prompt->final_str, "$ ", 1);
 	}
 	return (prompt->final_str);
 }
