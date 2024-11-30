@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 18:58:15 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/11/30 21:07:11 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/11/30 21:20:26 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 void	*ft_realloc(void *ptr, size_t size)
 {
 	char	*temp;
+	char	*old_ptr;
+	size_t	i;
 
 	if (!ptr)
 		return (malloc(size));
@@ -26,7 +28,13 @@ void	*ft_realloc(void *ptr, size_t size)
 	temp = malloc(size);
 	if (!temp)
 		return (NULL);
-	ft_memcpy(temp, ptr, size);
+	old_ptr = (char *)ptr;
+	i = 0;
+	while (i < size)
+	{
+		temp[i] = old_ptr[i];
+		i++;
+	}
 	free(ptr);
 	return (temp);
 }
