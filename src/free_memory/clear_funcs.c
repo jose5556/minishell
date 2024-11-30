@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 18:42:59 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/11/29 00:04:20 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/11/30 20:35:36 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ void	ft_clear_all(t_prompt *prompt)
 	free(prompt->hostname);
 	free(prompt->pwd);
 	free(prompt->home_path);
+	ft_printf("%s\n", EXIT_SUCCESS_MESSAGE);
 	exit(EXIT_SUCCESS);
 }

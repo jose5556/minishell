@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:58:34 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/11/29 00:19:17 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/11/30 20:35:03 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 # include <signal.h>
 
 //extern int	g_signal;
+
+# define EXIT_SUCCESS_MESSAGE "exit"
 
 typedef struct s_list
 {
