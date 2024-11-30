@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 23:29:05 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/11/30 18:36:16 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/11/30 19:47:34 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,31 +27,43 @@ char	*get_logname()
 	return (logname);
 }
 
-char	*get_hostname()
+static char	*hostname_util(char **result)
 {
 	int		i;
-	int		fd;
-	char	*result;
 	char	*temp;
 
 	i = 0;
-	result = NULL;
 	temp = NULL;
-	fd = open("/etc/hostname", O_RDONLY);
+	if (ft_strchr(*result, '.'))
+	{
+		while ((*result)[i] && (*result)[i] != '.')
+			i++;
+		temp = ft_substr(*result, 0, i);
+	}
+	else if (ft_strchr(*result, '\n'))
+	{
+		while ((*result)[i] && (*result)[i] != '\n')
+			i++;
+		temp = ft_substr(*result, 0, i);	
+	}
+	free(*result);
+	return (temp);
+}
+
+char	*get_hostname()
+{
+	//int		fd;
+	char	*result;
+
+	result = NULL;
+	/* fd = open("/etc/hostname", O_RDONLY);
 	if (fd == -1)
 		return (ft_strdup("localhost"));
-	result = get_next_line(fd);
+	result = get_next_line(fd); */
+	result = ft_strdup("Laptop.uio-hu\n");
 	if (!result)
 		return (ft_strdup("localhost"));
-	if (ft_strchr(result, '.'))
-	{
-		while (result && result[i] != '.')
-			i++;
-		temp = ft_substr(result, 0, i);
-		free(result);
-	}
-	if (temp)
-		return (temp);
+	result = hostname_util(&result);
 	return (result);
 }
 
