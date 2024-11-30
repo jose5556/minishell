@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 18:42:59 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/11/30 20:35:36 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/11/30 21:40:50 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	free_necessary(char	**line, t_prompt *prompt)
 
 void	ft_clear_all(t_prompt *prompt)
 {
+	rl_clear_history();
 	free(prompt->logname);
 	free(prompt->hostname);
 	free(prompt->pwd);
