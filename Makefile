@@ -31,7 +31,7 @@ OBJ = $(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ) $(LIBFT)
-	@$(CC) $(READLINE_FLAG) -o $@ $(OBJ) $(LIBFT)
+	@$(CC)  -o $@ $(OBJ) $(LIBFT) $(READLINE_FLAG)
 
 %.o: %.c
 	@$(CC) $(CFLAGS) -c $< -o $@
