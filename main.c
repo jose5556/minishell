@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:58:13 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/11/29 00:17:35 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/11/30 16:59:34 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,9 @@
 int	main(void)
 {
 	char		*line;
-	char		*str_prompt;
 	t_prompt	*prompt;
 
 	line = NULL;
-	str_prompt = NULL;
 	prompt = ft_calloc(sizeof(t_prompt), 1);
 	if (!prompt)
 		return (1);
