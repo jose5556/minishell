@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 23:29:05 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/11/30 19:47:34 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/11/30 19:48:54 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,15 +52,14 @@ static char	*hostname_util(char **result)
 
 char	*get_hostname()
 {
-	//int		fd;
+	int		fd;
 	char	*result;
 
 	result = NULL;
-	/* fd = open("/etc/hostname", O_RDONLY);
+	fd = open("/etc/hostname", O_RDONLY);
 	if (fd == -1)
 		return (ft_strdup("localhost"));
-	result = get_next_line(fd); */
-	result = ft_strdup("Laptop.uio-hu\n");
+	result = get_next_line(fd);
 	if (!result)
 		return (ft_strdup("localhost"));
 	result = hostname_util(&result);
