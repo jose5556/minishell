@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_readline.c                                      :+:      :+:    :+:   */
+/*   handle_commands.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/27 22:36:40 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/11/30 21:35:45 by joseoliv         ###   ########.fr       */
+/*   Created: 2024/11/30 20:59:05 by joseoliv          #+#    #+#             */
+/*   Updated: 2024/11/30 22:32:49 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/minishell.h"
 
-char	*ft_readline(t_prompt *prompt, char **line)
+void	parse_line(char *line)
 {
-	*line = readline(get_prompt(prompt));
-	//func to check syntax(*line);
-	//parse_line(*line);
-	add_history(*line);
-	return (*line);
+	
 }
