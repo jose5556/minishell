@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 23:29:05 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/11/30 18:14:05 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/11/30 18:36:16 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,9 @@ char	*get_hostname()
 		temp = ft_substr(result, 0, i);
 		free(result);
 	}
-	return (temp);
+	if (temp)
+		return (temp);
+	return (result);
 }
 
 char	*get_home()
