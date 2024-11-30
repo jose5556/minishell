@@ -6,7 +6,7 @@
 #    By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/19 16:11:54 by joseoliv          #+#    #+#              #
-#    Updated: 2024/11/28 18:46:27 by joseoliv         ###   ########.fr        #
+#    Updated: 2024/11/30 18:15:22 by joseoliv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ OBJ = $(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ) $(LIBFT)
-	@$(CC)  -o $@ $(OBJ) $(LIBFT) $(READLINE_FLAG)
+	@$(CC) -o $@ $(OBJ) $(LIBFT) $(READLINE_FLAG)
 
 %.o: %.c
 	@$(CC) $(CFLAGS) -c $< -o $@
