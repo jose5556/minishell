@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:58:34 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/11/30 20:35:03 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/12/03 05:16:42 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,21 @@
 
 # define EXIT_SUCCESS_MESSAGE "exit"
 
-typedef struct s_list
+typedef enum e_operator_type
 {
-	struct s_list *left;
-	struct s_list *right;
-	struct s_list *root;
-} t_list;
+	COMMAND,
+	OR,
+	AND,
+	PIPE,
+} t_operator_type;
+
+typedef struct s_tree
+{
+	char			*command;
+	struct s_tree	*left;
+	struct s_tree	*right;
+	struct s_tree	*parent;
+} t_tree;
 
 typedef struct s_prompt
 {
@@ -40,20 +49,30 @@ typedef struct s_prompt
 	char	*final_str;
 } t_prompt;
 
+//promp
 char	*get_prompt(t_prompt *prompt);
 char	*get_logname();
 char	*get_hostname();
 char	*get_home();
 char	*get_pwd(t_prompt *prompt);
 
+//init
 void	init_signals();
 void	init();
 
+//signals
 void	signal_handler(int signum);
 
+//realine
 char	*ft_readline(t_prompt *prompt, char **line);
 
+//free_memory
 void	ft_clear_all(t_prompt *prompt);
 void	free_necessary(char	**line, t_prompt *prompt);
+
+//utils
+t_tree	*create_tree(char *command);
+void	add_tree(t_tree *tree, char *command);
+t_operator_type get_command_num(char *command);
 
 #endif
