@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:58:34 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/12/05 08:27:40 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/12/05 08:51:17 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,16 +35,16 @@ typedef enum e_operator_type
     INPUT_REDIRECTION,		// <<
     REDIRECT_APPEND, 		// >>
     GROUP_BEGIN,     		// (
-    GROUP_END,     		// )
+    GROUP_END,     			// )
 } t_operator_type;
-
 
 typedef struct s_bash
 {
-	int		ignore_exit_status;
-	int		exit_status;
-	char	**command;
-	void	*bash_return;
+	int				ignore_exit_status;
+	int				exit_status;
+	char			**command;
+	void			*bash_return;
+	t_operator_type	operator;
 } t_bash;
 
 typedef struct s_prompt
@@ -64,24 +64,20 @@ char			*get_home();
 char			*get_pwd(t_prompt *prompt);
 
 //init
+void	init(char **line, t_prompt *prompt, t_bash *bash);
 void			init_signals();
-void			init();
 
 //signals
-void	signal_handler(int signum);
+void			signal_handler(int signum);
 
 //read_parse_line
-char			*ft_readline(t_prompt *prompt, char *line, t_tree *tree);
-void			parse_line(char *line, t_tree *tree);
+void			parse_line(char *line, t_bash *bash);
 
 //free_memory
 void			ft_clear_all(t_prompt *prompt);
 void			free_necessary(char	**line, t_prompt *prompt);
 
 //utils
-t_tree			*create_tree(char *command);
-void			add_tree(t_tree *tree, char *command);
 t_operator_type	get_command_num(char *command);
-void			clear_tree(t_tree *tree);
 
 #endif
