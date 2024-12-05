@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:58:13 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/11/30 23:25:01 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/12/05 08:28:50 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,20 @@ int	main(void)
 {
 	char		*line;
 	t_prompt	*prompt;
+	t_bash		*bash;
 
 	line = NULL;
+	bash = NULL;
 	prompt = ft_calloc(sizeof(t_prompt), 1);
 	if (!prompt)
 		return (1);
-	init();
+	init_signals();
 	while (1)
 	{
-		line = ft_readline(prompt, &line);
+		line = ft_readline(prompt, line, bash);
 		if (!line)
 			ft_clear_all(prompt);
-		if (line[0])
+		else if (line[0])
 			ft_printf("%s\n", line);
 		free_necessary(&line, prompt);
 	}

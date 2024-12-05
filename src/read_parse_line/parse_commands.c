@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_readline.c                                      :+:      :+:    :+:   */
+/*   parse_commands.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/27 22:36:40 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/11/30 21:35:45 by joseoliv         ###   ########.fr       */
+/*   Created: 2024/11/30 20:59:05 by joseoliv          #+#    #+#             */
+/*   Updated: 2024/12/05 08:29:30 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/minishell.h"
 
-char	*ft_readline(t_prompt *prompt, char **line)
+void	parse_line(char *line, t_bash bash)
 {
-	*line = readline(get_prompt(prompt));
-	//func to check syntax(*line);
-	//parse_line(*line);
-	add_history(*line);
-	return (*line);
+	char	**parsed_command;
+	int		i;
+
+	i = 0;
+	parsed_command = NULL;
+	parsed_command = ft_split(line, ' ');
+	while (parsed_command[i])
+	{
+		if (get_command_num(parsed_command[i]) == COMMAND)
+		
+	}
 }
+
