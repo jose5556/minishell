@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tree_list_utils.c                                  :+:      :+:    :+:   */
+/*   command_type.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 04:17:50 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/12/05 08:30:40 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/12/05 15:20:04 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/minishell.h"
 
-t_operator_type get_command_num(char *command)
+t_operator_type get_command_type(char *command)
 {
 	if (!command)
-		return (COMMAND);
+		return (NOTHING);
 	else if (!ft_strncmp(command, "|", 2))
 		return PIPE;
 	else if (!ft_strncmp(command, "||", 3))
@@ -30,9 +30,9 @@ t_operator_type get_command_num(char *command)
 		return REDIRECT_APPEND;
 	else if (!ft_strncmp(command, "<<", 3))
 		return INPUT_REDIRECTION;
-	else if (!ft_strchr(command, '('))
+	else if (ft_strchr(command, '('))
 		return GROUP_BEGIN;
-	else if (!ft_strchr(command, ')'))
+	else if (ft_strchr(command, ')'))
 		return GROUP_END;
 	return COMMAND;
 }
