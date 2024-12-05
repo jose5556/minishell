@@ -6,7 +6,7 @@
 #    By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/19 16:11:54 by joseoliv          #+#    #+#              #
-#    Updated: 2024/12/04 01:15:30 by joseoliv         ###   ########.fr        #
+#    Updated: 2024/12/05 08:31:34 by joseoliv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ SRC =		main.c \
 			src/init.c \
 			src/read_parse_line/ft_readline.c src/read_parse_line/parse_commands.c \
 			src/free_memory/clear_funcs.c \
-			src/utils/tree_list_utils.c
+			src/utils/command_type.c
 
 LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a
