@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 21:41:14 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/12/05 15:30:03 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/12/05 16:50:30 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	init(char **line, t_prompt *prompt, t_bash **bash)
 	*line = readline(get_prompt(prompt));
 	add_history(*line);
 	parsed_command = ft_split(*line, ' '); //TODO split with the tabs as well
+	check_syntax(*line);
 	parse_line(parsed_command, bash);
 	print_lst(*bash);
 }
