@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_commands.c                                   :+:      :+:    :+:   */
+/*   ft_strlen_array.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/30 20:59:05 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/12/05 08:38:14 by joseoliv         ###   ########.fr       */
+/*   Created: 2024/12/05 09:06:57 by joseoliv          #+#    #+#             */
+/*   Updated: 2024/12/05 09:07:28 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/minishell.h"
+#include "../libft.h"
 
-void	parse_line(char *line, t_bash *bash)
+size_t	ft_strlen_array(const char **s)
 {
-	char	**parsed_command;
-	int		i;
+	size_t	i;
 
 	i = 0;
-	parsed_command = NULL;
-	parsed_command = ft_split(line, ' ');
-	while (parsed_command[i])
-	{
-		if (get_command_num(parsed_command[i]) == COMMAND)
-		
-	}
+	while (s[i])
+		i++;
+	return (i);
 }
-

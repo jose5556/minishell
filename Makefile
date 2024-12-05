@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: cmoura-p <cmoura-p@student.42.fr>          +#+  +:+       +#+         #
+#    By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/19 16:11:54 by joseoliv          #+#    #+#              #
-#    Updated: 2024/12/05 14:36:19 by cmoura-p         ###   ########.fr        #
+#    Updated: 2024/12/05 16:34:44 by joseoliv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,10 +20,10 @@ SRC =		main.c \
 			src/prompt/get_prompt.c src/prompt/prompt_values.c \
 			src/signals/handle_signals.c \
 			src/init.c \
-			src/read_parse_line/ft_readline.c src/read_parse_line/parse_commands.c \
+			src/parse/parse_commands.c \
 			src/lexer/check_syntax.c \
 			src/free_memory/clear_funcs.c \
-			src/utils/command_type.c
+			src/utils/bash_utils.c src/utils/command_type.c src/utils/lst_utils.c
 
 LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a
