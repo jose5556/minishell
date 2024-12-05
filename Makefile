@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+         #
+#    By: cmoura-p <cmoura-p@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/19 16:11:54 by joseoliv          #+#    #+#              #
-#    Updated: 2024/12/05 08:31:34 by joseoliv         ###   ########.fr        #
+#    Updated: 2024/12/05 14:36:19 by cmoura-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ SRC =		main.c \
 			src/signals/handle_signals.c \
 			src/init.c \
 			src/read_parse_line/ft_readline.c src/read_parse_line/parse_commands.c \
+			src/lexer/check_syntax.c \
 			src/free_memory/clear_funcs.c \
 			src/utils/command_type.c
 

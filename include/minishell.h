@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: cmoura-p <cmoura-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:58:34 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/12/05 08:51:17 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/12/05 14:35:27 by cmoura-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,9 @@ void			init_signals();
 
 //signals
 void			signal_handler(int signum);
+
+//lexer
+char	*check_syntax(char *line);
 
 //read_parse_line
 void			parse_line(char *line, t_bash *bash);

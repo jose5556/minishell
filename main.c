@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: cmoura-p <cmoura-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:58:13 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/12/05 08:47:38 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/12/05 14:32:54 by cmoura-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,14 @@ int	main(void)
 		init(&line, prompt, bash);
 		if (!line)
 			ft_clear_all(prompt);
-		else if (line[0])
-			ft_printf("%s\n", line);
+		else
+		{
+			line = check_syntax(line);
+			if (line)
+				ft_printf("%s\n", line);	// aqui caminhamos para o parse
+		}
+		/* else if (line[0])
+			ft_printf("%s\n", line); */
 		free_necessary(&line, prompt);
 	}
 	return (0);
