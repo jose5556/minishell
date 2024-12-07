@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:58:13 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/12/05 16:42:50 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/12/07 09:04:47 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,9 @@ int	main(void)
 	{
 		init(&line, prompt, &bash);
 		if (!line)
-			ft_clear_all(prompt);
-		free_necessary(&line, prompt);
+			ft_clear_all(&prompt, &bash);
+		print_lst(bash);
+		free_necessary(&line, prompt, &bash);
 	}
 	return (0);
 }
