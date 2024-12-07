@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 20:59:05 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/12/05 16:09:02 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/12/07 10:52:38 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	parse_line(char **parsed_command, t_bash **bash)
 		{
 			while (get_command_type(*parsed_command) == COMMAND)
 			{
-				command = ft_strjoin_free(command, *parsed_command, 1);
+				command = ft_strjoin_free(command, *parsed_command, 3);
 				parsed_command++;
 			}
 			addback_bash(command, bash);
@@ -32,7 +32,7 @@ void	parse_line(char **parsed_command, t_bash **bash)
 		}
 		else if (get_command_type(*parsed_command) != NOTHING)
 		{
-			command = ft_strjoin_free(command, *parsed_command, 1);
+			command = ft_strjoin_free(command, *parsed_command, 3);
 			command = ft_strjoin_free(command, " ", 1);
 			parsed_command++;
 		}
