@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:58:34 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/12/07 09:21:44 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/12/07 11:43:12 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ typedef struct s_bash
 {
 	int				exit_status;
 	void			*bash_return;
-	t_operator_type	operator;
-	struct s_list	*lst_commands;
+	char			*raw_command;
+	//t_operator_type	operator;
 	struct s_bash	*next;
 } t_bash;
 
