@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:58:34 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/12/07 09:05:48 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/12/07 09:21:44 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,11 +71,11 @@ char			*get_home();
 char			*get_pwd(t_prompt *prompt);
 
 //init
-void			init(char **line, t_prompt *prompt, t_bash **bash);
+int				init(char **line, t_prompt *prompt, t_bash **bash);
 void			init_signals();
 
 //lexer
-char	*check_syntax(char *line);
+char			*check_syntax(char *line);
 
 //signals
 void			signal_handler(int signum);
@@ -84,8 +84,8 @@ void			signal_handler(int signum);
 void			parse_line(char **parsed_command, t_bash **bash);
 
 //free_memory
-void			ft_clear_all(t_prompt **prompt, t_bash **bash);
-void			free_necessary(char	**line, t_prompt *prompt, t_bash **bash);
+void			ft_clear_all(t_prompt **prompt, t_bash **bash, char	**line);
+void			free_necessary(char	**line, t_prompt **prompt, t_bash **bash);
 
 //utils
 t_operator_type	get_command_type(char *command);

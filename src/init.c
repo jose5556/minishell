@@ -6,22 +6,25 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 21:41:14 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/12/07 07:58:25 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/12/07 09:26:42 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minishell.h"
 
-void	init(char **line, t_prompt *prompt, t_bash **bash)
+int	init(char **line, t_prompt *prompt, t_bash **bash)
 {
 	char	**parsed_command;
 
 	parsed_command = NULL;
 	*line = readline(get_prompt(prompt));
+	if (!(*line))
+		return (0);
 	add_history(*line);
 	parsed_command = ft_split(*line, ' '); //TODO split with the tabs as well
 	check_syntax(*line);
 	parse_line(parsed_command, bash);
+	return (1);
 }
 
 void	init_signals()
