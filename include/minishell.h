@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:58:34 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/12/07 11:43:12 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/12/07 14:23:03 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,11 +94,11 @@ t_bash			*create_bash(char *command);
 void			addback_bash(char *command, t_bash **bash);
 t_bash			*get_last_bash(t_bash *bash);
 void			ft_bashclear(t_bash **bash);
+void			print_bash(t_bash *bash);
 
 t_list			*ft_newlst(char *content);
 void			ft_lstadd_back(t_list **lst, char *content);
 t_list			*get_last_lst(t_list *lst);
 void			ft_lstclear(t_list **lst);
-void			print_lst(t_bash *bash);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 08:55:01 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/12/07 09:02:55 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/12/07 14:23:14 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,17 @@
 t_bash	*create_bash(char *command)
 {
 	t_bash	*bash;
-	t_list	*list;
 
 	bash = NULL;
-	list = NULL;
-	bash = ft_calloc(sizeof(t_bash), 1);
-	list = ft_calloc(sizeof(t_list), 1);
-	if (!bash || !list)
+	if (!command)
 		return (NULL);
-	list->content = ft_strdup(command);
-	bash->lst_commands = list;
+	bash = malloc(sizeof(t_bash));
+	if (!bash)
+		return (NULL);
+	bash->raw_command = ft_strdup(command);
+	bash->exit_status = 0;
+	bash->bash_return = NULL;
+	bash->next = NULL;
 	return (bash);
 }
 
@@ -33,6 +34,8 @@ void	addback_bash(char *command, t_bash **bash)
 	t_bash	*new_node;
 	t_bash	*last;
 
+	if (!command)
+		return ;
 	new_node = create_bash(command);
 	if (!new_node)
 		return ;
@@ -47,27 +50,33 @@ void	addback_bash(char *command, t_bash **bash)
 
 t_bash	*get_last_bash(t_bash *bash)
 {
-	t_bash	*last;
-
-	last = bash;
-	while (last->next)
-		last = last->next;
-	return (last);
+	while (bash && bash->next)
+		bash = bash->next;
+	return (bash);
 }
 
 void	ft_bashclear(t_bash **bash)
 {
 	t_bash	*temp;
+	t_bash	*next_node;
 
-	temp = *bash;
-	if (!(*bash))
+	if (!(*bash) || !bash)
 		return ;
-	ft_lstclear(&(*bash)->lst_commands);
-	while (*bash)
+	temp = *bash;
+	while (temp)
 	{
+		next_node = temp->next;
 		free(temp);
-		*bash = (*bash)->next;
-		temp = *bash;
+		temp = next_node;
 	}
-	bash = NULL;
+	*bash = NULL;
+}
+
+void	print_bash(t_bash *bash)
+{
+	while (bash)
+	{
+		ft_printf("%s\n", bash->raw_command);
+		bash = bash->next;
+	}
 }
