@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 08:55:01 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/12/05 15:54:01 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/12/07 09:02:55 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ t_bash	*create_bash(char *command)
 void	addback_bash(char *command, t_bash **bash)
 {
 	t_bash	*new_node;
+	t_bash	*last;
 
 	new_node = create_bash(command);
 	if (!new_node)
@@ -39,11 +40,34 @@ void	addback_bash(char *command, t_bash **bash)
 		*bash = new_node;
 	else
 	{
-		while ((*bash)->lst_commands->next)
-			(*bash)->lst_commands = (*bash)->lst_commands->next;
-		(*bash)->lst_commands->next = new_node->lst_commands;
-		while ((*bash)->next)
-			*bash = (*bash)->next;
-		(*bash)->next = new_node;	
+		last = get_last_bash(*bash);
+		last->next = new_node;
 	}
+}
+
+t_bash	*get_last_bash(t_bash *bash)
+{
+	t_bash	*last;
+
+	last = bash;
+	while (last->next)
+		last = last->next;
+	return (last);
+}
+
+void	ft_bashclear(t_bash **bash)
+{
+	t_bash	*temp;
+
+	temp = *bash;
+	if (!(*bash))
+		return ;
+	ft_lstclear(&(*bash)->lst_commands);
+	while (*bash)
+	{
+		free(temp);
+		*bash = (*bash)->next;
+		temp = *bash;
+	}
+	bash = NULL;
 }

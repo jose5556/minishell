@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:58:34 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/12/05 17:03:01 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/12/07 09:05:48 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,17 +84,20 @@ void			signal_handler(int signum);
 void			parse_line(char **parsed_command, t_bash **bash);
 
 //free_memory
-void			ft_clear_all(t_prompt *prompt);
-void			free_necessary(char	**line, t_prompt *prompt);
+void			ft_clear_all(t_prompt **prompt, t_bash **bash);
+void			free_necessary(char	**line, t_prompt *prompt, t_bash **bash);
 
 //utils
 t_operator_type	get_command_type(char *command);
 
 t_bash			*create_bash(char *command);
 void			addback_bash(char *command, t_bash **bash);
+t_bash			*get_last_bash(t_bash *bash);
+void			ft_bashclear(t_bash **bash);
 
 t_list			*ft_newlst(char *content);
 void			ft_lstadd_back(t_list **lst, char *content);
+t_list			*get_last_lst(t_list *lst);
 void			ft_lstclear(t_list **lst);
 void			print_lst(t_bash *bash);
 

@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 13:22:33 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/12/05 16:08:00 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/12/07 08:36:26 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,44 +27,42 @@ t_list	*ft_newlst(char *content)
 void	ft_lstadd_back(t_list **lst, char *content)
 {
 	t_list	*new_node;
-	t_list	*temp;
+	t_list	*last;
 
 	new_node = ft_newlst(content);
 	if (!new_node)
 		return ;
 	if (!(*lst))
-	{
 		*lst = new_node;
-		new_node->next = *lst;
-	}
 	else
 	{
-		temp = *lst;
-		while (temp->next != *lst && temp->next)
-			temp = temp->next;
-		temp->next = new_node;
-		new_node->next = *lst;
+		last = get_last_lst(*lst);
+		last->next = new_node;
 	}
+}
+
+t_list	*get_last_lst(t_list *lst)
+{
+	t_list	*last;
+
+	last = lst;
+	while (last->next)
+		last = last->next;
+	return (last);
 }
 
 void	ft_lstclear(t_list **lst)
 {
 	t_list	*temp;
-	t_list	*next_node;
 
+	temp = *lst;
 	if (!(*lst))
 		return ;
-	temp = *lst;
-	while (temp->next != *lst)
-		temp = temp->next;
-	temp->next = NULL;
-	temp = *lst;
-	while (temp)
+	while (*lst)
 	{
-		next_node = temp->next;
-		free(next_node->content);
 		free(temp);
-		temp = next_node;
+		*lst = (*lst)->next;
+		temp = *lst;
 	}
 	*lst = NULL;
 }
