@@ -3,44 +3,50 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+         #
+#    By: dzinchen <dzinchen@student.42porto.co      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/04/11 20:20:52 by joseoliv          #+#    #+#              #
-#    Updated: 2024/12/07 10:13:06 by joseoliv         ###   ########.fr        #
+#    Created: 2023/10/18 09:42:25 by dzinchen          #+#    #+#              #
+#    Updated: 2023/10/19 11:57:08 by dzinchen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
-
 CC = cc
-FLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
+RM = rm -rf
+SRC = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_toupper.c ft_tolower.c ft_isascii.c ft_strlen.c \
+      ft_atoi.c ft_strlen.c ft_atoi.c ft_isprint.c ft_strncmp.c ft_memcmp.c ft_memset.c ft_bzero.c \
+      ft_strchr.c ft_strrchr.c ft_memchr.c ft_strlcpy.c ft_memcpy.c ft_memmove.c ft_strdup.c \
+      ft_strlcat.c ft_strnstr.c ft_calloc.c ft_substr.c ft_strjoin.c ft_strjoin_free.c ft_strtrim.c ft_putchar_fd.c \
+      ft_putnbr_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_strmapi.c ft_striteri.c ft_itoa.c ft_split.c \
+      ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c ft_lstdelone.c ft_lstiter.c ft_lstlast.c \
+      ft_lstmap.c ft_lstnew.c ft_lstsize.c ft_iswhitespace.c ft_strcmp.c ft_isspace.c\
+      ft_printf/ft_printf.c ft_printf/ft_hex_array.c ft_printf/ft_len.c ft_printf/ft_putchar.c \
+      ft_printf/ft_puthex.c ft_printf/ft_putnbr.c ft_printf/ft_putpointer.c ft_printf/ft_putstr.c \
+      ft_printf/ft_typefinder.c \
+      gnl/get_next_line.c gnl/get_next_line_utils.c
+      
+OBJS = $(SRC:.c=.o)
 
-SRC = \
-	char/ft_isalpha.c char/ft_isdigit.c char/ft_isalnum.c char/ft_isascii.c char/ft_isprint.c char/ft_tolower.c char/ft_toupper.c \
-	get_next_line/get_next_line_utils.c get_next_line/get_next_line.c \
-	input_output/ft_putchar_fd.c input_output/ft_putendl_fd.c input_output/ft_putnbr_fd.c input_output/ft_putstr_fd.c \
-	input_output/ft_printf/ft_printf.c input_output/ft_printf/write_funcs.c input_output/ft_printf/nbr_funcs.c \
-	memory/ft_bzero.c memory/ft_calloc.c memory/ft_realloc.c memory/ft_memchr.c memory/ft_memcmp.c memory/ft_memcpy.c memory/ft_memmove.c \
-	memory/ft_memset.c memory/ft_clear_array.c \
-	string/ft_split.c string/ft_strchr.c string/ft_strdup.c string/ft_striteri.c string/ft_strjoin.c string/ft_strlcat.c string/ft_strlcpy.c \
-	string/ft_strlen.c string/ft_strlen_array.c string/ft_strmapi.c string/ft_strncmp.c string/ft_strnstr.c string/ft_strrchr.c string/ft_strtrim.c string/ft_substr.c \
-	string/ft_strjoin_free.c \
-	utility/ft_atoi_int.c utility/ft_itoa.c utility/ft_pow.c utility/ft_atoi_double.c
-
-OBJ = $(SRC:.c=.o)
+SRCBONUS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c \
+	   ft_lstclear.c ft_lstiter.c ft_lstmap.c
+OBJSBONUS = $(SRCBONUS:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	@ar rcs $(NAME) $(OBJ)
+$(NAME): $(OBJS)
+	ar rc $(NAME) $(OBJS)
+
+bonus: $(NAME) $(OBJSBONUS)
+	ar rc $(NAME) $(OBJS) $(OBJSBONUS)
 
 %.o: %.c
-	@$(CC) $(FLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $*.c -o $*.o	
 
 clean:
-	@rm -f $(OBJ)
+	$(RM) $(OBJS) $(OBJSBONUS)
 
 fclean: clean
-	@rm -f $(NAME)
+	$(RM) $(NAME)
 
 re: fclean all
