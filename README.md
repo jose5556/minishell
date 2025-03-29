@@ -17,7 +17,6 @@ The objective of this project is to create a simple shell that replicates the ba
 
 Minishell is a very small version of Bash, built from scratch in C. It features a command-line interface where users can execute built-in commands, external programs, and handle input/output redirections. The project also includes signal handling for process control.
 
-For more detailed information about the implementation, see the project subject that is among the uploaded files.
 
 # 🛠️ Usage
 
