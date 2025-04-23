@@ -67,8 +67,8 @@ $ ls -l | grep .c > files.txt
 # 📌 Note
 
 <h4>
-  This project requires the readline library. If, for some unknown reason, an error appears when compiling the
-  project, you can resolve it with the following command:
+  This project requires the readline library. If, for some unknown reason, an error occurs while compiling, 
+  you can resolve it with the following command:
 </h4>
 
 ```shell
